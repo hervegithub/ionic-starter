@@ -1,0 +1,21 @@
+<ion-content>
+  <div class="ion-text-center ion-margin-top">
+    <img src="../../assets/icon/favicon.png">
+  </div>
+  <div class="ion-padding">
+    <ion-item lines="none">
+      <ion-icon name="mail-outline" slot="end"></ion-icon>
+      <ion-input type="text" placeholder="Entrer votre email"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon [name]="(isPasswordVisible)? 'eye-off-outline':'eye-outline'"
+                slot="end" (click)="onShowPassword()"></ion-icon>
+      <ion-input [type]="(isPasswordVisible)? 'text' : 'password'" placeholder="Saissir votre email"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary">Connexion</ion-button>
+    <div class="ion-text-center ion-margin-top register">
+      <a href="">You don't have account ?</a>
+    </div>
+  </div>
+</ion-content>
+
