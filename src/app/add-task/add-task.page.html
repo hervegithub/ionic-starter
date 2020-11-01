@@ -1,0 +1,13 @@
+<ion-content class="ion-padding">
+  <ion-item lines="none">
+    <ion-input [(ngModel)]="task.taskTitle" type="text" placeholder="Tache à faire"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-textarea [(ngModel)]="task.taskDescription" rows="4" placeholder="Plus d'information sur la tache"></ion-textarea>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-datetime [(ngModel)]="task.taskDate" value="2019-10-01T15:43:40.394Z" display-timezone="utc" display-format="MMM DD, YYYY HH:mm"></ion-datetime>
+  </ion-item>
+  <ion-button  expand="block" color="primary" (click)="onAddTask()">Enregistrer</ion-button>
+  <ion-button (click)="onCloseModal()"  expand="block" fill="outline" color="danger">Annuler</ion-button>
+</ion-content>
