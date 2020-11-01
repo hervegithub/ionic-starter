@@ -12,7 +12,7 @@
                 slot="end" (click)="onShowPassword()"></ion-icon>
       <ion-input [type]="(isPasswordVisible)? 'text' : 'password'" placeholder="Saissir votre email"></ion-input>
     </ion-item>
-    <ion-button expand="block" color="primary">Connexion</ion-button>
+    <ion-button (click)="onLogin()" expand="block" color="primary">Connexion</ion-button>
     <div class="ion-text-center ion-margin-top register">
       <a href="">You don't have account ?</a>
     </div>
