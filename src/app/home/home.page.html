@@ -4,28 +4,33 @@
       <ion-avatar slot="start" class="ion-margin-start">
         <img src="https://media-exp1.licdn.com/dms/image/C4D03AQE5DlNI4b1vYQ/profile-displayphoto-shrink_200_200/0?e=1609372800&v=beta&t=n88kuDC9TJozhMSvYXN-hOUC-BknPn2XuWE3jNX1ED0">
       </ion-avatar>
-      <ion-title>
+      <ion-title *ngIf="!isSearchBarIsVisible">
         My Tasks
       </ion-title>
-      <div slot="end">
+      <div slot="end" *ngIf="!isSearchBarIsVisible">
         <ion-icon class="header-icon" name="filter-outline"></ion-icon>
-        <ion-icon class="header-icon" name="search-outline"></ion-icon>
+        <ion-icon class="header-icon" name="search-outline" (click)="onShowSearchBar()"></ion-icon>
+      </div>
+      <div *ngIf="isSearchBarIsVisible">
+        <ion-searchbar showCancelButton="focus"  searchIcon="search-outline"
+        (ionCancel)="onCancelSearch()"></ion-searchbar>
       </div>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-fab (click)="onShowModal()" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab (click)="onShowModal()" mode="ios" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
   <div class="ion-padding">
     <div>
       <p class="description date">Today</p>
     </div>
-    <ion-item lines="none" *ngFor="let task of taskList">
+    <ion-item mode="ios" lines="none" *ngFor="let task of taskList">
       <ion-icon slot="start" name="checkmark-circle-outline" [color]="(task.isDone) ? 'warning':''"></ion-icon>
       <div>
         <p>{{task.taskTitle}}</p>

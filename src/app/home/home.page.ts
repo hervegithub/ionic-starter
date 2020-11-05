@@ -11,14 +11,22 @@ import {TaskService} from "../services/task.service";
 })
 export class HomePage {
 
-    taskList:TasksModel[];
+  taskList:TasksModel[];
+  isSearchBarIsVisible : boolean = false;
 
   constructor(private modalCtrl: ModalController, private taskService:TaskService) {
       this.taskList = [];
       this.taskService.onGetAllTask().then((tasks:TasksModel[]) => {
           this.taskList = tasks;
       });
+  }
 
+  onShowSearchBar(){
+    this.isSearchBarIsVisible = !this.isSearchBarIsVisible;
+  }
+
+  onCancelSearch(){
+    this.onShowSearchBar();
   }
 
 
